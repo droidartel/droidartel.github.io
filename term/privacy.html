@@ -1,1 +1,11 @@
-ggg
+<html>
+<body>
+<script>
+    var lang = navigator.language || navigator.userLanguage;
+    if (lang.indexOf('zh') == 0)
+        window.location = '/zh/';
+    else
+        window.location = '/en/';
+</script>
+</body>
+</html>
