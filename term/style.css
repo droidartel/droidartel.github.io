@@ -35,16 +35,15 @@ li {
 
 /* Special Containers */
 .warning {
-    background: #101010;
+    background: rgba(255, 255, 255, 0.1);
     padding: 15px;
-    border-left: 5px solid #ffeeba;
     margin: 20px 0;
     border-radius: 4px;
     font-size: 0.95em;
 }
 
 .contact {
-    background: #101010;
+    background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #ddd;
