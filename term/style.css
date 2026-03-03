@@ -58,6 +58,10 @@ strong {
   color: white;
 }
 
+ul {
+  list-style-type: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
     body {
