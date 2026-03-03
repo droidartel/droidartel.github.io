@@ -54,6 +54,10 @@ hr {
     border: 0;
 }
 
+strong {
+  color: white;
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
     body {
