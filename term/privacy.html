@@ -1,13 +1,67 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Privacy Policy</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: sans-serif; }
+        
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
 <body>
-<script>
-    var lang = navigator.language || navigator.userLanguage;
-    if (lang.indexOf('zh') == 0)
-        window.location = '/term/zh/privacy.html';
-    else
-        window.location = '/term/en/privacy.html';
-</script>
+
+    <div class="lang-switch">
+        <select id="languageSelect" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="zh">简体中文</option>
+        </select>
+    </div>
+
+    <iframe id="contentFrame" src=""></iframe>
+
+    <script>
+        const contentFrame = document.getElementById('contentFrame');
+        const langSelect = document.getElementById('languageSelect');
+
+        // Paths to files in the subfolder
+        const pages = {
+            en: 'en/privacy_policy.html',
+            zh: 'zh/privacy_policy.html'
+        };
+
+        function changeLanguage(lang) {
+            contentFrame.src = pages[lang];
+            langSelect.value = lang;
+        }
+
+        function init() {
+            // Detect browser language
+            const browserLang = navigator.language || navigator.userLanguage;
+            
+            // Default to English. Switch to Chinese if browser starts with 'zh'
+            let targetLang = browserLang.startsWith('zh') ? 'zh' : 'en';
+
+            changeLanguage(targetLang);
+        }
+
+        init();
+    </script>
 </body>
-
 </html>
-
